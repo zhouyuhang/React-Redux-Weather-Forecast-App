@@ -32,6 +32,7 @@ localhost:8080
 * openweathermap API
 * Google Map API
 * axios
+* react-sparklines
 * lodash
 * npm
 
