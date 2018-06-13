@@ -1,6 +1,8 @@
 import { FETCH_WEATHER } from '../actions/index';
 
 export default function(state = [], action) {
+  console.log('Action received:', action);
+
   switch(action.type) {
   case FETCH_WEATHER:
     //DON'T DO THIS! WE DON'T MANIPULATE STATE DIRECTLY IN REDUX.
@@ -9,11 +11,13 @@ export default function(state = [], action) {
 
     //We have to return a completely new and fresh copy of state:
 
-    // return state.concat([action.payload.data]); 
+    // return state.concat([action.payload.data]);
     //concat is a better approach because it gives a new instance of state
+    if(!action.error === true){
+      return [ action.payload.data, ...state ]; //Fancy ES6 syntax
+      //[ city, city, city ], NOT [ city, [ city, city, city ] ]
+    }
 
-    return [ action.payload.data, ...state ]; //Fancy ES6 syntax
-    //[ city, city, city ], NOT [ city, [ city, city, city ] ]
   }
 
   return state;

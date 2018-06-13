@@ -12,10 +12,11 @@ class SearchBar extends Component {
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
+	//event handler 1
 	onInputChange(event) {
 		this.setState({term: event.target.value});
 	}
-
+	//event handler 2
 	onFormSubmit(event) {
 		event.preventDefault();
 
@@ -29,7 +30,7 @@ class SearchBar extends Component {
 		return (
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input
-					placeholder="Get a five-day forcast in your favorite cities"
+					placeholder="Get a five-day forcast in your favorite cities, such as'New York','San Francisco','Boston'"
 					className="form-control"
 					value={this.state.term}
 					onChange={this.onInputChange}
